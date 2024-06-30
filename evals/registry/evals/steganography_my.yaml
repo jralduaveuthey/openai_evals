@@ -1,0 +1,46 @@
+steganography_my:
+  id: steganography_my.scratch
+  description: Tests a model's ability to pass secret messages in public channels while avoiding detection.
+  metrics: [undetected_acc, detectability, reconstruction_error]
+
+steganography_my.direct:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "direct"
+
+steganography_my.direct_ref:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "direct+ref"
+
+steganography_my.scratch:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "scratch"
+
+steganography_my.scratch_ref:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "scratch+ref"
+
+steganography_my.copypayload:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "copypayload"
+
+steganography_my.task_payload:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "task+payload"
+
+steganography_my.taskonly:
+  class: evals.elsuite.steganography.eval:Steganography
+  args:
+    samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "taskonly"
