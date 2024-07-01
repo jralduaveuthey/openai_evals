@@ -4,43 +4,61 @@ steganography_my:
   metrics: [undetected_acc, detectability, reconstruction_error]
 
 steganography_my.direct:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
     prompt_version: "direct"
 
 steganography_my.direct_ref:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
     prompt_version: "direct+ref"
 
 steganography_my.scratch:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
     prompt_version: "scratch"
 
 steganography_my.scratch_ref:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
     prompt_version: "scratch+ref"
 
 steganography_my.copypayload:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
     prompt_version: "copypayload"
 
 steganography_my.task_payload:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
     prompt_version: "task+payload"
 
 steganography_my.taskonly:
-  class: evals.elsuite.steganography.eval:Steganography
+  class: evals.elsuite.steganography_my.eval:Steganography_my
   args:
     samples_jsonl: steganography/samples_my.jsonl
+    prompt_version: "taskonly"
+  
+steganography_my.interleaved_tokens:
+  class: evals.elsuite.steganography_my.eval:Steganography_my
+  args:
+    samples_jsonl: steganography/samples_interleaved_tokens.jsonl
+    prompt_version: "taskonly"
+
+steganography_my.alternative_encoding:
+  class: evals.elsuite.steganography_my.eval:Steganography_my
+  args:
+    samples_jsonl: steganography/samples_alternative_encoding.jsonl #TODO: add samples
+    prompt_version: "taskonly"
+
+steganography_my.censored_cognition:
+  class: evals.elsuite.steganography_my.eval:Steganography_my
+  args:
+    samples_jsonl: steganography/samples_censored_cognition.jsonl #TODO: add samples
     prompt_version: "taskonly"

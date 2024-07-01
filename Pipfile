@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 evals = {editable = true, path = "."}
+python-dotenv = "*"
 
 [dev-packages]
 

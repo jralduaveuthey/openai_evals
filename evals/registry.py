@@ -15,6 +15,7 @@ from typing import Any, Generator, Iterator, Optional, Sequence, Tuple, Type, Ty
 
 import openai
 import yaml
+from dotenv import load_dotenv
 from openai import OpenAI
 
 from evals import OpenAIChatCompletionFn, OpenAICompletionFn
@@ -23,7 +24,11 @@ from evals.base import BaseEvalSpec, CompletionFnSpec, EvalSetSpec, EvalSpec
 from evals.elsuite.modelgraded.base import ModelGradedSpec
 from evals.utils.misc import make_object
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+try:
+    client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+except openai.OpenAIError:
+    load_dotenv()
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 logger = logging.getLogger(__name__)
 
